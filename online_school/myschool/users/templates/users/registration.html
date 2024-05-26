@@ -13,13 +13,13 @@
 </head>
 <body>
     <div class="container users-container">
-        <section class="registration">
+        <section class="registration users-section">
             <div class="registration__links-block">
                 <a href="{% url 'main' %}" class="reg-auth__link">главная</a>
-                <a href="{% url 'main' %}" class="reg-auth__link">вход</a>
+                <a href="{% url 'login' %}" class="reg-auth__link">вход</a>
             </div>
-            <div class="registration__content">
-                <h2 class="registration__title reset-text">РЕГИСТРАЦИЯ</h2>
+            <div class="registration__content users-section-content">
+                <h2 class="registration__title users-title reset-text">РЕГИСТРАЦИЯ</h2>
                     {% if timer_run %}
                         <div class="reg-auth__timer">
                             <p class="registration__timer-timer {% if second_step %} text--hidden {% endif %}">{{ timer }}</p>
@@ -42,15 +42,12 @@
                     <div class="registration__step-block">
                         <p class="registration__text reset-text">На ваш e-mail: <span class="registration__email-text"> {{email}} </span> выслан код подтверждения. Пожалуйста, введите код ниже и нажмите подтвердить, чтобы продолжить регистрацию.</p>
                         <input type="number" placeholder="Введите код подтверждения..." type="text" class="registration__confirm-input form-input">
+                        <button class="registration__confirm-button">подтвердить</button>
                     </div>
                     <p class="reg-auth__step-error step-error-bottom reset-text"></p>
-                    <div class="registration__step-block">
-                        <p class="registration__resand-message"></p>
+                    <p class="registration__resand-message"></p>
+                    <div class="registration__step-block-buttons">
                         <button class="registration__resend-confirmation">отправить еще раз</button>
-                    </div>
-
-                    <div class="registration__step-block">
-                        <button class="registration__confirm-button">подтвердить</button>
                         <button class="registration__change-email">сменить e-mail</button>
                     </div>
                     

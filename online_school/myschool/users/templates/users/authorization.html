@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base/base_css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_css/base_style.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/users.css' %}">
+    <title>Авторизация</title>
+</head>
+<body>
+<div class="container users-container">
+    <section class="authorization users-section">
+        <div class="registration__links-block">
+            <a href="{% url 'main' %}" class="reg-auth__link">главная</a>
+            <a href="{% url 'registration' %}" class="reg-auth__link">регистрация</a>
+        </div>
+        <div class="authorization__content users-section-content">
+            <h2 class="authorization__title users-title">
+                АВТОРИЗАЦИЯ
+            </h2>
+            <form class="authorization__form users-form" method="POST">
+                {% csrf_token %}
+                <div class="authorization__blocks users-form-block">
+                    <ul class="authorization__error-list users-error-list reset-list">
+                        {% for error in form.non_field_errors  %}
+                            <li class="reg-auth__error-list-item">
+                                {{error|escape}}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% for field in form %}
+                    <div class="reg-auth__form-block">
+                        <p class="reg-auth__form-label reset-text">{{field.label}}</p>
+                        {{field}}
+                        <ul class="reg-auth__error-list reset-list">
+                            {% for error in field.errors %}
+                                <li class="reg-auth__error-list-item">
+                                    {{error}}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        
+                    </div>
+                    {% endfor %}
+                </div>
+                <a href="" class="authorization__form-link">забыли пароль?</a>
+                <button class="reg-auth__submit-button" type="submit">войти</button>
+            </form>
+        </div>
+    </section>
+</div>
+    
+    
+</body>
+</html>

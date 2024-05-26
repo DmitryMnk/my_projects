@@ -124,7 +124,7 @@ class SendActivationCode(APIView):
         return Response({
             'access': response['access'],
             'timer_run': response['timer_run'],
-            'timer': response['timer']
+            'timer': response.get('timer')
         })
 
 
@@ -197,30 +197,6 @@ class ConfirmUserEmail(APIView):
         })
 
 
-class LoginUserView(UserIsAuthenticated, LoginView):
-    template_name = 'users/registration.html'
-    form_class = LoginForm
-    redirect_field_name = 'main'
-    redirect_authenticated_user = 'main'
-
-    def get_success_url(self):
-        return reverse_lazy('main')
-
-    def get_context_data(self, **kwargs):
-        context = super(LoginUserView, self).get_context_data(**kwargs)
-        context.update({
-            'title': 'Авторизация',
-            'section_title': 'авторизация',
-            'btn_title': 'войти'
-        })
-        return context
-
-
-def logout_view(request: HttpRequest) -> HttpResponse:
-    logout(request)
-    return redirect('main')
-
-
 class RegisterView(UserIsAuthenticated, CreateView):
     template_name = 'users/registration.html'
     form_class = RegistrationForm
@@ -283,3 +259,16 @@ class RegisterView(UserIsAuthenticated, CreateView):
             if delta_time.seconds < 300:
                 timer_run = True
         return self.render_to_response(self.get_context_data(form=form, **{'errors': True, 'timer_run': timer_run}))
+
+
+class LoginUserView(UserIsAuthenticated, LoginView):
+    template_name = 'users/authorization.html'
+    form_class = LoginForm
+
+    def get_success_url(self):
+        return reverse_lazy('main')
+
+
+def logout_view(request: HttpRequest) -> HttpResponse:
+    logout(request)
+    return redirect('main')

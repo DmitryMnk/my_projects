@@ -7,22 +7,15 @@ input {
     margin: 0;
 }
 
-/* -= REGISTRATION =- */
-
-.users-container {
-    padding: 100px;
-    padding-left: 20px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-image: url('../img/back.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
+.users-title {
+    position: absolute;
+    top: -20px;
+    padding: 5px 10px;
+    background-color: #000000;
+    font-family: 'MontserratAlternates-Medium';
 }
 
-.registration {
+.users-section {
     position: relative;
     background-color: rgba(0, 0, 0, 1);
     padding: 50px;
@@ -37,7 +30,7 @@ input {
     box-shadow: -10px 10px 20px 5px rgba(255, 255, 255, 0.2);
 }
 
-.registration__content {
+.users-section-content {
     padding: 50px 20px;
     position: relative;
     display: flex;
@@ -46,6 +39,38 @@ input {
     flex-direction: column;
     border-top: 2px solid #a0a0a0;
     width: 100%;
+}
+
+.users-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.users-form-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.users-error-list {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* -= REGISTRATION =- */
+
+.users-container {
+    padding: 100px;
+    padding-left: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-image: url('../img/back.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
 }
 
 .registration__timer-timer {
@@ -64,12 +89,9 @@ input {
     text-align: center;
 }
 
-.registration__title {
-    position: absolute;
-    top: -20px;
-    padding: 5px 10px;
-    background-color: #000000;
-    font-family: 'MontserratAlternates-Medium';
+.registration__text {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .registration__step {
@@ -94,6 +116,17 @@ input {
 
 .text--hidden {
     display: none;
+}
+
+.registration__step-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration__step-block-buttons {
+    display: flex;
+    justify-content: space-around;
 }
 
 .registration__message-block {
@@ -121,4 +154,15 @@ input {
 .message-block--active {
     transform: translateY(0);
     opacity: 1;
+}
+
+
+/* -= AUTHORIZATION =- */
+
+.authorization__title {
+    top: -40px;
+}
+
+.authorization__form-link {
+    margin-bottom: 30px;
 }
