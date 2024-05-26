@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block main %}
+    <section class="confirmation">
+        <h2 class="section-title">Подтверждение e-mail</h2>
+        <p class="confirmation__text reset-text">На ваш е-mail: {{ mail }} был выслан шестизначный код для подтверждения.</p>
+        <p class="confirmation__text reset-text">Введите его в поле ниже, чтобы подтвердить e-mail и завершить регистрацию.</p>
+        <a href="{% url 'send_email_confirmation' %}" class="reset-link">Отправить заново</a>
+        <a href="" class="reset-link">Сменить e-mail</a>
+        {% if message %}
+            <p class="confirmation__text reset-text error-text">{{message}}</p>
+        {% endif %}
+        <form method="post" action="" class="confirmation__form">
+            {% csrf_token %}
+            <input type="number" name="confirm-code" maxlength="6" class="form-input">
+            <button type="submit">подтвердить</button>
+        </form>
+    </section>
+{% endblock %}

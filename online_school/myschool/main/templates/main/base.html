@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base/base_css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_css/base_style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header__auth">
+                {% if user.is_authenticated %}
+                <div class="header__auth-block">
+                    <p class="header__auth-name">{{user.first_name}}</p>
+                    <a href="{% url 'logout' %}" class="header__auth-link auth-link reset-link">выйти</a>
+                </div>
+                {% else %}
+                    <div class="header__auth-block">
+                        <a href="{% url 'registration' %}" class="header__auth-link registration-link reset-link">регистрация</a>
+                        <a href="{% url 'login' %}" class="header__auth-link auth-link reset-link">вход</a>
+                    </div>
+                {% endif %}
+            </div>
+            <nav class="header__nav">
+                <div class="header__left-nav">
+                    <a href="#" class="header__nav-link reset-link">
+                        наши курсы
+                    </a>
+                    <a href="#" class="header__nav-link reset-link">
+                        теория
+                    </a>
+                </div>
+                <a href="{% url 'main' %}" class="header__nav-link header-logo reset-link"></a>
+                <div class="header__right-nav">
+                    <a href="#" class="header__nav-link reset-link">
+                        блог
+                    </a>
+                    <a href="#" class="header__nav-link reset-link">
+                        контакты
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {% block main %}
+
+            {% endblock %}
+        </main>
+        <footer class="footer">
+            <div class="footer__top">
+                <a href="" class="footer__logo-link reset-link">
+                    <img src="{% static 'base/base_img/main/footer/footer_logo.png' %}" alt="" class="footer__logo">
+                </a>
+                
+                <p class="footer__top-text rest-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suscipit adipiscing bibendum est ultricies integer. Vivamus arcu felis bibendum ut. Lectus magna fringilla urna porttitor rhoncus. Faucibus vitae aliquet nec ullamcorper. Aliquam vestibulum morbi blandit cursus. Nibh sit amet commodo nulla facilisi nullam. Rhoncus aenean vel elit scelerisque mauris pellentesque. Lectus arcu bibendum at varius vel pharetra vel turpis....
+                </p>
+            </div>
+
+            <div class="footer__nav">
+                <ul class="footer__nav-list reset-list">
+                    <li class="footer__nav-list-item">
+                        <a href="" class="footer__nav-link reset-link">наши курсы</a>
+                    </li>
+                    
+                    <li class="footer__nav-list-item">
+                        <a href="" class="footer__nav-link reset-link">теория</a>
+                    </li>
+                    
+                    <li class="footer__nav-list-item">
+                        <a href="" class="footer__nav-link reset-link">блог</a>
+                    </li>
+                    
+                    <li class="footer__nav-list-item">
+                        <a href="" class="footer__nav-link reset-link">контакты</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__socials">
+                <a href="" class="footer__socials-link">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" fill="#48484A"/>
+                        <path d="M25 14.759C28.3133 14.759 28.7651 14.759 30.1205 14.759C31.3253 14.759 31.9277 15.0602 32.3795 15.2108C32.9819 15.512 33.4337 15.6627 33.8855 16.1145C34.3374 16.5663 34.6386 17.0181 34.7892 17.6205C34.9398 18.0723 35.0904 18.6747 35.241 19.8795C35.241 21.2349 35.241 21.5361 35.241 25C35.241 28.4639 35.241 28.7651 35.241 30.1205C35.241 31.3253 34.9398 31.9277 34.7892 32.3795C34.488 32.9819 34.3374 33.4337 33.8855 33.8855C33.4337 34.3374 32.9819 34.6386 32.3795 34.7892C31.9277 34.9398 31.3253 35.0904 30.1205 35.241C28.7651 35.241 28.4639 35.241 25 35.241C21.5361 35.241 21.2349 35.241 19.8795 35.241C18.6747 35.241 18.0723 34.9398 17.6205 34.7892C17.0181 34.488 16.5663 34.3374 16.1145 33.8855C15.6627 33.4337 15.3614 32.9819 15.2108 32.3795C15.0602 31.9277 14.9096 31.3253 14.759 30.1205C14.759 28.7651 14.759 28.4639 14.759 25C14.759 21.5361 14.759 21.2349 14.759 19.8795C14.759 18.6747 15.0602 18.0723 15.2108 17.6205C15.512 17.0181 15.6627 16.5663 16.1145 16.1145C16.5663 15.6627 17.0181 15.3614 17.6205 15.2108C18.0723 15.0602 18.6747 14.9096 19.8795 14.759C21.2349 14.759 21.6867 14.759 25 14.759ZM25 12.5C21.5361 12.5 21.2349 12.5 19.8795 12.5C18.5241 12.5 17.6205 12.8012 16.8675 13.1024C16.1145 13.4036 15.3614 13.8554 14.6084 14.6084C13.8554 15.3614 13.5542 15.9639 13.1024 16.8675C12.8012 17.6205 12.6506 18.5241 12.5 19.8795C12.5 21.2349 12.5 21.6867 12.5 25C12.5 28.4639 12.5 28.7651 12.5 30.1205C12.5 31.4759 12.8012 32.3795 13.1024 33.1325C13.4036 33.8855 13.8554 34.6386 14.6084 35.3916C15.3614 36.1446 15.9639 36.4458 16.8675 36.8976C17.6205 37.1988 18.5241 37.3494 19.8795 37.5C21.2349 37.5 21.6867 37.5 25 37.5C28.3133 37.5 28.7651 37.5 30.1205 37.5C31.4759 37.5 32.3795 37.1988 33.1325 36.8976C33.8855 36.5964 34.6386 36.1446 35.3916 35.3916C36.1446 34.6386 36.4458 34.0361 36.8976 33.1325C37.1988 32.3795 37.3494 31.4759 37.5 30.1205C37.5 28.7651 37.5 28.3133 37.5 25C37.5 21.6867 37.5 21.2349 37.5 19.8795C37.5 18.5241 37.1988 17.6205 36.8976 16.8675C36.5964 16.1145 36.1446 15.3614 35.3916 14.6084C34.6386 13.8554 34.0361 13.5542 33.1325 13.1024C32.3795 12.8012 31.4759 12.6506 30.1205 12.5C28.7651 12.5 28.4639 12.5 25 12.5Z" fill="white"/>
+                        <path d="M25 18.5241C21.3855 18.5241 18.5241 21.3855 18.5241 25C18.5241 28.6145 21.3855 31.4759 25 31.4759C28.6145 31.4759 31.4759 28.6145 31.4759 25C31.4759 21.3855 28.6145 18.5241 25 18.5241ZM25 29.2169C22.741 29.2169 20.7831 27.4096 20.7831 25C20.7831 22.741 22.5904 20.7831 25 20.7831C27.259 20.7831 29.2169 22.5904 29.2169 25C29.2169 27.259 27.259 29.2169 25 29.2169Z" fill="white"/>
+                        <path d="M31.6265 19.8795C32.4583 19.8795 33.1325 19.2052 33.1325 18.3735C33.1325 17.5417 32.4583 16.8675 31.6265 16.8675C30.7948 16.8675 30.1205 17.5417 30.1205 18.3735C30.1205 19.2052 30.7948 19.8795 31.6265 19.8795Z" fill="white"/>
+                    </svg>
+                </a>
+                <a href="" class="footer__socials-link">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" fill="#48484A"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0781 33.821C13.5878 33.676 13.1404 33.4179 12.7737 33.0686C12.407 32.7193 12.1318 32.289 11.9712 31.814C11.0537 29.3592 10.7818 19.1087 12.5489 17.0851C13.137 16.4268 13.9674 16.0215 14.8597 15.9572C19.6003 15.4596 34.2468 15.5259 35.929 16.1231C36.4021 16.2729 36.8344 16.5253 37.1934 16.8614C37.5524 17.1975 37.8288 17.6085 38.0019 18.0637C39.0044 20.6015 39.0384 29.8236 37.866 32.2619C37.555 32.8966 37.0343 33.4107 36.3878 33.7215C34.6207 34.584 16.4229 34.5674 14.0781 33.821ZM21.6053 29.0109L30.101 24.6984L21.6053 20.3527V29.0109Z" fill="white"/>
+                    </svg>
+                        
+                </a>
+                <a href="" class="footer__socials-link">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" fill="#48484A"/>
+                        <path d="M34.9085 15.0781C32.439 12.6172 29.1463 11.25 25.6707 11.25C18.4451 11.25 12.5915 17.0833 12.5915 24.2839C12.5915 26.5625 13.2317 28.8411 14.3293 30.7552L12.5 37.5L19.4512 35.6771C21.372 36.6797 23.4756 37.2266 25.6707 37.2266C32.8963 37.2266 38.75 31.3932 38.75 24.1927C38.6585 20.8203 37.378 17.5391 34.9085 15.0781ZM31.9817 28.9323C31.7073 29.6615 30.4268 30.3906 29.7866 30.4818C29.2378 30.5729 28.5061 30.5729 27.7744 30.3906C27.3171 30.2083 26.6768 30.026 25.9451 29.6615C22.6524 28.2943 20.5488 25.013 20.3659 24.7396C20.1829 24.5573 18.9939 23.0078 18.9939 21.3672C18.9939 19.7266 19.8171 18.9974 20.0915 18.6328C20.3659 18.2682 20.7317 18.2682 21.0061 18.2682C21.189 18.2682 21.4634 18.2682 21.6463 18.2682C21.8293 18.2682 22.1037 18.1771 22.378 18.8151C22.6524 19.4531 23.2927 21.0938 23.3841 21.1849C23.4756 21.3672 23.4756 21.5495 23.3841 21.7318C23.2927 21.9141 23.2012 22.0964 23.0183 22.2786C22.8354 22.4609 22.6524 22.7344 22.561 22.8255C22.378 23.0078 22.1951 23.1901 22.378 23.4635C22.561 23.8281 23.2012 24.8307 24.2073 25.7422C25.4878 26.8359 26.4939 27.2005 26.8598 27.3828C27.2256 27.5651 27.4085 27.474 27.5915 27.2917C27.7744 27.1094 28.4146 26.3802 28.5976 26.0156C28.7805 25.651 29.0549 25.7422 29.3293 25.8333C29.6037 25.9245 31.25 26.7448 31.5244 26.9271C31.8902 27.1094 32.0732 27.2005 32.1646 27.2917C32.2561 27.5651 32.2561 28.2031 31.9817 28.9323Z" fill="white"/>
+                    </svg>
+                        
+                </a>
+                <a href="" class="footer__socials-link">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" fill="#48484A"/>
+                        <path d="M35 15.7528L31.2432 35.3653C31.2432 35.3653 30.7176 36.7251 29.2736 36.073L20.6057 29.1907L20.5655 29.1704C21.7364 28.0817 30.8155 19.6283 31.2123 19.2452C31.8266 18.6517 31.4452 18.2984 30.732 18.7467L17.321 27.5662L12.147 25.7635C12.147 25.7635 11.3328 25.4635 11.2545 24.8114C11.1751 24.1582 12.1738 23.8049 12.1738 23.8049L33.2664 15.2362C33.2664 15.2362 35 14.4474 35 15.7528V15.7528Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <span class="footer__bottom-line"></span>
+        </footer>
+    </div>
+</body>
+</html>

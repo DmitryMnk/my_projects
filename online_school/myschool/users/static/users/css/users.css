@@ -1,0 +1,124 @@
+html {
+    background-color: #000000;
+    font-family: 'MontserratRegular';
+}
+
+input {
+    margin: 0;
+}
+
+/* -= REGISTRATION =- */
+
+.users-container {
+    padding: 100px;
+    padding-left: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-image: url('../img/back.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.registration {
+    position: relative;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 50px;
+    width: 600px;
+    min-height: 80vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    box-shadow: -10px 10px 20px 5px rgba(255, 255, 255, 0.2);
+}
+
+.registration__content {
+    padding: 50px 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 2px solid #a0a0a0;
+    width: 100%;
+}
+
+.registration__timer-timer {
+    opacity: 0;
+    padding: 3px;
+    min-height: 30px;
+    font-size: 20px;
+}
+
+.registration__links-block {
+    margin-bottom: 40px;
+}
+
+.registration__step-text {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.registration__title {
+    position: absolute;
+    top: -20px;
+    padding: 5px 10px;
+    background-color: #000000;
+    font-family: 'MontserratAlternates-Medium';
+}
+
+.registration__step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 200ms ease-in-out,
+                transform 200ms ease-in-out;
+}
+
+.step--active {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+}
+
+.step-display--off {
+    display: none;
+}
+
+.text--hidden {
+    display: none;
+}
+
+.registration__message-block {
+    position: absolute;
+    opacity: 0;
+    width: 200%;
+    top: -32%;
+    transform: translateY(-50px);
+    left: -50%;
+    padding: 10px;
+    background-color: #1e1e1e;
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 90%,
+        55% 90%,
+        50% 100%,
+        45% 90%,
+        0% 90%
+    );
+    transition: transform 200ms ease-in-out,
+                opacity 200ms ease-in-out;
+}
+
+.message-block--active {
+    transform: translateY(0);
+    opacity: 1;
+}

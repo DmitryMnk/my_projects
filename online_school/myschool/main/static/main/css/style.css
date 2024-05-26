@@ -1,0 +1,360 @@
+html {
+    background: #1e1e1e;
+    font-family: 'RobotoRegular';
+    font-weight: 400;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* -= HEADER =- */
+
+.header {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.header__nav {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    padding: 15px 20px;
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+
+
+.header__nav-link {
+    color: white;
+    font-size: 24px;
+    font-family: 'MontserratAlternates-medium';
+}
+
+.header__left-nav {
+    width: calc((100% - 300px) / 2 - 20px);
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header__right-nav {
+    width: calc((100% - 300px) / 2 - 20px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-logo {
+    display: block;
+    background-repeat: no-repeat;
+    width: 300px;
+    margin-right: 20px;
+    background-size: contain;
+    background-position: center center;
+    height: 90px;
+    background-image: url('../../base/base_img/main/header/header-logo.png');
+}
+
+.header__auth {
+    z-index: 0;
+    padding-bottom: 30px;
+    background-color: black;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    border-radius: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    font-family: 'MontserratAlternates-medium';
+    left: calc(50% - 250px);
+    bottom: -100px;
+    font-size: 20px;
+    box-shadow: 0px 0px 20px 2px rgba(255, 255, 255, 0.5);
+}
+
+.registration-link {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #FF0000;
+    margin-bottom: 5px;
+}
+
+
+.header__auth-block {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* -= BANNER =- */
+
+.banner {
+    padding: 50px;
+    background-image: url('../img/banner/banner-back.jpg');
+    display: flex;
+    justify-content: space-between;
+    background-position: center center;
+}
+
+.banner__left-content {
+    padding-top: 20px;
+}
+
+.banner__title {
+    font-size: 48;
+    font-family: 'MontserratAlternates-ExtraBold';
+    width: 400px;
+    text-align: center;
+    color: #978664;
+    margin-bottom: 20px;
+}
+
+.banner__list-text {
+    color: white;
+    font-size: 20px;
+    font-family: 'MontserratMedium';
+}
+
+.banner__list-item {
+    padding-left: 40px;
+    width: 230px;
+    text-align: center;
+}
+
+.banner__list-item:nth-child(2n) {
+    padding-left: 100px;
+    width: 290px;
+}
+
+.banner__list-item:nth-child(3n) {
+    padding-left: 150px;
+    width: 340px;
+}
+
+.banner__list-item:not(:last-of-type) {
+    margin-bottom: 30px;
+}
+
+.banner__right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: rgba(25, 25, 25, 0.7);
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+.banner__right-content-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner__right-text {
+    color: white;
+    font-size: 20px;
+    width: 230px;
+    text-align: center;
+    font-family: 'MontserratAlternates-Medium';
+}
+
+.banner__right-content-img {
+    border-radius: 20px;
+    object-fit: cover;
+    width: 170px;
+    height: 170px;
+}
+
+/* -= ABOUT =- */
+
+.about {
+    padding: 20px;
+    padding-bottom: 60px;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 320px;
+    background-image: url('../img/about/wave.png');
+}
+
+.about__title {
+    margin-bottom: 20px;
+    color: #1e1e1e;
+}
+
+.about__text {
+    width: 700px;
+    font-size: 20px;
+    font-family: 'MontserratRegular';
+    color: white;
+}
+
+/* -= COURSES =- */
+
+.courses {
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.courses__title {
+    text-align: right;
+}
+
+.courses__subtitle {
+    border-bottom: 1px solid #a0a0a0;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-family: 'MontserratBold';
+    color: white;
+}
+
+.courses__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.courses__list-item {
+    width: 42%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.courses__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    border: 1px solid #a0a0a0;
+}
+
+.courses__card-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.courses__card-title {
+    position: absolute;
+    font-size: 24px;
+    font-family: 'MontserratAlternates-Medium';
+    color: white;
+    padding: 10px 20px;
+    background-color: #1e1e1e;
+    bottom: -10px;
+    left: 70%;
+}
+
+.courses__link-block {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.courses__link {
+    margin-left: auto;
+}
+
+
+
+
+/* -= FOOTER =- */
+
+.footer {
+    margin-top: auto;
+    position: relative;
+    padding: 50px 20px;
+    background-color: black;
+    color: aliceblue;
+}
+
+.footer__top {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.footer__logo-link {
+    margin-right: 20px;
+}
+
+.footer__top-text {
+    font-size: 20px;
+    font-family: 'MontserratRegular';
+}
+
+
+
+.footer__nav {
+    padding: 10px 20px;
+    border-top: 2px solid #a0a0a0;
+    border-bottom: 2px solid #a0a0a0;
+    margin-bottom: 50px;
+}
+
+.footer__nav-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__nav-list-item {
+    max-width: 270px;
+    width: 100%;
+}
+
+.footer__nav-list-item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.footer__nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    color: #B06400;
+    background-color: #1e1e1e;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'MontserratAlternates-ExtraBold';
+}
+
+.footer__socials {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.footer__socials-link:not(:last-of-type) {
+    margin-right: 40px;
+}
+
+.footer__bottom-line {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #978664;
+}
+
+/* -= REGISTRATION =- */
+

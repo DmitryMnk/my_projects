@@ -1,0 +1,69 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block main %}
+    <div class="container">
+
+        <section class="banner">
+            <div class="banner__left-content">
+                <h1 class="banner__title reset-text">
+                    Онлайн школа высокого уровня
+                </h1>
+                <ul class="banner__list reset-list">
+                    <li class="banner__list-item">
+                        <p class="banner__list-text reset-text">Веббинары</p>
+                    </li>
+                    <li class="banner__list-item">
+                        <p class="banner__list-text reset-text">Живые уроки</p>
+                    </li>
+                    <li class="banner__list-item">
+                        <p class="banner__list-text reset-text">Практические занятия</p>
+                    </li>
+                    <li class="banner__list-item">
+                        <p class="banner__list-text reset-text">Опытные преподаватели</p>
+                    </li>
+                    <li class="banner__list-item">
+                        <p class="banner__list-text reset-text">Тестовые работы</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="banner__right-content">
+                <div class="banner__right-content-card">
+                    <p class="banner__right-text reset-text">Занимайся в удобном месте</p>
+                    <img src="{% static 'main/img/banner/banner-right1.jpg' %}" alt="" class="banner__right-content-img">
+                </div>
+                <div class="banner__right-content-card">
+                    <img src="{% static 'main/img/banner/banner-right2.jpg' %}" alt="" class="banner__right-content-img">
+                    <p class="banner__right-text reset-text">Получай помощь опытного ментора</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <h2 class="about__title section-title reset-text">
+                О нас
+            </h2>
+            <p class=" about__text reset-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suscipit adipiscing bibendum est ultricies integer. Vivamus arcu felis bibendum ut. Lectus magna fringilla urna porttitor rhoncus. Faucibus vitae aliquet nec ullamcorper. Aliquam vestibulum morbi blandit cursus. Nibh sit amet commodo nulla facilisi nullam. Rhoncus aenean vel elit scelerisque mauris pellentesque. Lectus arcu bibendum at varius vel pharetra vel turpis. Proin libero nunc consequat interdum varius sit. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. Amet est placerat in egestas erat.
+            </p>
+        </section>
+        <section class="courses">
+            <h2 class="courses__title section-title reset-text">Наши курсы</h2>
+            <p class="courses__subtitle reset-text">Мы предлагаем курсы в следующих категориях:</p>
+            <ul class="courses__list reset-list">
+                {% for cat in course_cats %}
+                <li class="courses__list-item">
+                    <div class="courses__card">
+                        <img src="{{ cat.preview.url }}" alt="Изображение категории" class="courses__card-preview">
+                        <h3 class="courses__card-title reset-text">{{ cat.name }}</h3>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="courses__link-block">
+                <a href="" class="courses__link reset-link link-type-2">полный список курсов</a>
+            </div>
+            
+        </section>
+    </div>
+{% endblock %}
